@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>YonatanMankovich.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>YonatanMankovich.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Authors>Yonatan Mankovich</Authors>
+    <Copyright>Copyright © $(Authors) 2022</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleColorConsole\SimpleColorConsole.csproj" />
+  </ItemGroup>
+
+</Project>
