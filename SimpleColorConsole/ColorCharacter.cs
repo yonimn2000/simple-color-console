@@ -5,7 +5,7 @@ namespace YonatanMankovich.SimpleColorConsole
     /// <summary>
     /// Represents a colored console character.
     /// </summary>
-    public class ConsoleCharacter : IEquatable<ConsoleCharacter?>
+    public class ColorCharacter : IConsoleWritable, IEquatable<ColorCharacter?>
     {
         private char character;
         private static HashSet<char> InvalidCharacters { get; } = new HashSet<char> { '\n', '\r', '\t' };
@@ -37,12 +37,12 @@ namespace YonatanMankovich.SimpleColorConsole
         public ConsoleColor? BackColor { get; set; }
 
         /// <summary>
-        /// Initializes an instance of the <see cref="ConsoleCharacter"/> class with a <see cref="char"/> and colors.
+        /// Initializes an instance of the <see cref="ColorCharacter"/> class with a <see cref="char"/> and colors.
         /// </summary>
         /// <param name="character">The character.</param>
         /// <param name="textColor">The text color of the character as will be displayed in the console.</param>
         /// <param name="backColor">The background color of the character as will be displayed in the console.</param>
-        public ConsoleCharacter(char character, ConsoleColor? textColor = null, ConsoleColor? backColor = null)
+        public ColorCharacter(char character, ConsoleColor? textColor = null, ConsoleColor? backColor = null)
         {
             Character = character;
             TextColor = textColor;
@@ -50,18 +50,18 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <summary>
-        /// Initializes an instance of the <see cref="ConsoleCharacter"/> class with 
+        /// Initializes an instance of the <see cref="ColorCharacter"/> class with 
         /// a blank (space) character and a background color.
         /// </summary>
         /// <param name="backColor">The background color of the character as will be displayed in the console.</param>
-        public ConsoleCharacter(ConsoleColor? backColor = null)
+        public ColorCharacter(ConsoleColor? backColor = null)
         {
             Character = ' ';
             BackColor = backColor;
         }
 
         /// <summary>
-        /// Writes the current <see cref="ConsoleCharacter"/> to the console.
+        /// Writes the current <see cref="ColorCharacter"/> to the console.
         /// </summary>
         public void Write()
         {
@@ -84,9 +84,18 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <summary>
-        /// Writes the current <see cref="ConsoleCharacter"/> to the console at a given point.
+        /// Writes the current <see cref="ColorCharacter"/> to the console and adds a line terminator.
         /// </summary>
-        /// <param name="point">The position in the console to write the current <see cref="ConsoleCharacter"/> to.</param>
+        public void WriteLine()
+        {
+            Write();
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Writes the current <see cref="ColorCharacter"/> to the console at a given point.
+        /// </summary>
+        /// <param name="point">The position in the console to write the current <see cref="ColorCharacter"/> to.</param>
         public void WriteAtPoint(Point point)
         {
             // Save current cursor coordinates.
@@ -101,10 +110,10 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object? obj) => Equals(obj as ConsoleCharacter);
+        public override bool Equals(object? obj) => Equals(obj as ColorCharacter);
 
         /// <inheritdoc/>
-        public bool Equals(ConsoleCharacter? other)
+        public bool Equals(ColorCharacter? other)
         {
             return other != null &&
                    Character == other.Character &&

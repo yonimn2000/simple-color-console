@@ -1,16 +1,16 @@
 ﻿namespace YonatanMankovich.SimpleColorConsole
 {
     /// <summary>
-    /// Represents a structure that helps writing <see cref="ConsoleCharacter"/>s more efficiently.
+    /// Represents a structure that helps writing <see cref="ColorCharacter"/>s more efficiently.
     /// </summary>
     public class ContinuousColorConsoleWriter : IDisposable
     {
-        protected bool InitialCursorVisible { get; }
-        protected ConsoleColor InitialTextColor { get; }
-        protected ConsoleColor InitialBackColor { get; }
+        private bool InitialCursorVisible { get; }
+        private ConsoleColor InitialTextColor { get; }
+        private ConsoleColor InitialBackColor { get; }
 
-        protected ConsoleColor? LastTextColor { get; set; }
-        protected ConsoleColor? LastBackColor { get; set; }
+        private ConsoleColor? LastTextColor { get; set; }
+        private ConsoleColor? LastBackColor { get; set; }
 
         /// <summary>
         /// Initializes an instance of the <see cref="ContinuousColorConsoleWriter"/> class and saves the relevant <see cref="Console"/> properties.
@@ -27,11 +27,11 @@
         }
 
         /// <summary>
-        /// Writes the given <see cref="ConsoleCharacter"/> without moving the cursor position or changing
-        /// the console colors unless needed based on the previously written <see cref="ConsoleCharacter"/>.
+        /// Writes the given <see cref="ColorCharacter"/> without moving the cursor position or changing
+        /// the console colors unless needed based on the previously written <see cref="ColorCharacter"/>.
         /// </summary>
-        /// <param name="character">The <see cref="ConsoleCharacter"/>.</param>
-        protected internal void Write(ConsoleCharacter character)
+        /// <param name="character">The <see cref="ColorCharacter"/>.</param>
+        protected internal void Write(ColorCharacter character)
         {
             bool needToChangeColor = NeedToChangeColor(character);
             if (needToChangeColor)
@@ -52,7 +52,7 @@
             }
         }
 
-        private bool NeedToChangeColor(ConsoleCharacter newChar)
+        private bool NeedToChangeColor(ColorCharacter newChar)
         {
             return (newChar.Character != ' ' && newChar.TextColor != LastTextColor) || newChar.BackColor != LastBackColor;
         }

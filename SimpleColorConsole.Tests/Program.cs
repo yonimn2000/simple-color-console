@@ -7,32 +7,32 @@ RunLinesTests();
 
 static void RunCharacterTests()
 {
-    Console.WriteLine(nameof(ConsoleCharacter) + " Tests");
+    Console.WriteLine(nameof(ColorCharacter) + " Tests");
     Console.WriteLine(new string('-', 35));
-    ConsoleCharacter character;
+    ColorCharacter character;
 
     Console.Write("Blank character: [");
-    character = new ConsoleCharacter();
+    character = new ColorCharacter();
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Background character: [");
-    character = new ConsoleCharacter(ConsoleColor.Blue);
+    character = new ColorCharacter(ConsoleColor.Blue);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Text colored character: [");
-    character = new ConsoleCharacter('#', textColor: ConsoleColor.Magenta);
+    character = new ColorCharacter('#', textColor: ConsoleColor.Magenta);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Background colored character: [");
-    character = new ConsoleCharacter('#', backColor: ConsoleColor.Magenta);
+    character = new ColorCharacter('#', backColor: ConsoleColor.Magenta);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Fully colored character: [");
-    character = new ConsoleCharacter('#', textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
+    character = new ColorCharacter('#', textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
     character.Write();
     Console.WriteLine("]");
 
@@ -45,7 +45,7 @@ static void RunCharacterTests()
     Console.Write("Invalid character: [");
     try
     {
-        character = new ConsoleCharacter('\n');
+        character = new ColorCharacter('\n');
     }
     catch (ArgumentException)
     {
@@ -57,32 +57,32 @@ static void RunCharacterTests()
 
 static void RunStringTests()
 {
-    Console.WriteLine(nameof(ConsoleString) + " Tests");
+    Console.WriteLine(nameof(ColorString) + " Tests");
     Console.WriteLine(new string('-', 35));
-    ConsoleString str;
+    ColorString str;
 
     Console.Write("Blank string: [");
-    str = new ConsoleString();
+    str = new ColorString();
     str.Write();
     Console.WriteLine("]");
 
     Console.Write("Background string: [");
-    str = new ConsoleString(new string(' ', 10), backColor: ConsoleColor.Blue);
+    str = new ColorString(new string(' ', 10), backColor: ConsoleColor.Blue);
     str.Write();
     Console.WriteLine("]");
 
     Console.Write("Text colored string: [");
-    str = new ConsoleString("0123456789", textColor: ConsoleColor.Magenta);
+    str = new ColorString("0123456789", textColor: ConsoleColor.Magenta);
     str.Write();
     Console.WriteLine("]");
 
     Console.Write("Background colored string: [");
-    str = new ConsoleString("0123456789", backColor: ConsoleColor.Magenta);
+    str = new ColorString("0123456789", backColor: ConsoleColor.Magenta);
     str.Write();
     Console.WriteLine("]");
 
     Console.Write("Fully colored string: [");
-    str = new ConsoleString("0123456789", textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
+    str = new ColorString("0123456789", textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
     str.Write();
     Console.WriteLine("]");
 
@@ -92,19 +92,19 @@ static void RunStringTests()
     str.WriteAtPoint(new Point(Console.CursorLeft - str.Length - 1, Console.CursorTop));
     Console.WriteLine();
 
-    Console.WriteLine(nameof(ConsoleString) + " to string: [" + str.ToString() + "]");
+    Console.WriteLine(nameof(ColorString) + " to string: [" + str.ToString() + "]");
 
     Console.Write("Char at index 7: [");
     str[7].Write();
     Console.WriteLine("]");
 
     Console.Write("Add char to end: [");
-    str.AddToEnd(new ConsoleCharacter('@', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red));
+    str.AddToEnd(new ColorCharacter('@', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red));
     str.Write();
     Console.WriteLine("]");
 
     Console.Write("Add string to end: [");
-    str.AddToEnd(new ConsoleString("0123456789", textColor: ConsoleColor.Blue, backColor: ConsoleColor.Green));
+    str.AddToEnd(new ColorString("0123456789", textColor: ConsoleColor.Blue, backColor: ConsoleColor.Green));
     str.Write();
     Console.WriteLine("]");
 
@@ -113,14 +113,14 @@ static void RunStringTests()
     Console.WriteLine("]");
 
     Console.Write("Concat char: [");
-    str = new ConsoleString("0123456789", textColor: ConsoleColor.Yellow, backColor: ConsoleColor.Blue);
-    ConsoleCharacter character = new ConsoleCharacter('$', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
-    ConsoleString newString = str + character;
+    str = new ColorString("0123456789", textColor: ConsoleColor.Yellow, backColor: ConsoleColor.Blue);
+    ColorCharacter character = new ColorCharacter('$', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
+    ColorString newString = str + character;
     newString.Write();
     Console.WriteLine("]");
 
     Console.Write("Concat string: [");
-    ConsoleString str2 = new ConsoleString("0123456789", textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
+    ColorString str2 = new ColorString("0123456789", textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
     newString = str + str2;
     newString.Write();
     Console.WriteLine("]");
@@ -130,37 +130,37 @@ static void RunStringTests()
 
 static void RunLinesTests()
 {
-    Console.WriteLine(nameof(ConsoleLines) + " Tests");
+    Console.WriteLine(nameof(ColorLines) + " Tests");
     Console.WriteLine(new string('-', 35));
-    ConsoleLines lines;
+    ColorLines lines;
 
     Console.Write("Blank lines: [");
-    lines = new ConsoleLines();
+    lines = new ColorLines();
     lines.Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add line: [");
-    lines = new ConsoleLines();
-    ConsoleString line1 = new ConsoleString("ABCDEFGHIJKLMNOPQRSTUVWXYZ", textColor: ConsoleColor.Cyan, backColor: ConsoleColor.Red);
-    ConsoleString line2 = new ConsoleString("0123456789");
-    ConsoleString line3 = new ConsoleString("!@#$%^&*()_+", textColor: ConsoleColor.DarkBlue, backColor: ConsoleColor.Yellow);
+    lines = new ColorLines();
+    ColorString line1 = new ColorString("ABCDEFGHIJKLMNOPQRSTUVWXYZ", textColor: ConsoleColor.Cyan, backColor: ConsoleColor.Red);
+    ColorString line2 = new ColorString("0123456789");
+    ColorString line3 = new ColorString("!@#$%^&*()_+", textColor: ConsoleColor.DarkBlue, backColor: ConsoleColor.Yellow);
     lines.AddLine(line1).AddLine(line2).AddLine(line3).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add lines: [");
-    new ConsoleLines(lines).AddLines(lines).Write();
+    new ColorLines(lines).AddLines(lines).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add blank line: [");
-    new ConsoleLines(lines).AddLine().AddLines(lines).Write();
+    new ColorLines(lines).AddLine().AddLines(lines).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add char to end of last line: [");
-    new ConsoleLines(lines).AddToEndOfLastLine(new ConsoleCharacter('~', backColor: ConsoleColor.Magenta)).Write();
+    new ColorLines(lines).AddToEndOfLastLine(new ColorCharacter('~', backColor: ConsoleColor.Magenta)).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add string to end of last line: [");
-    new ConsoleLines().AddLine(line1).AddLine(line2).AddToEndOfLastLine(line1).Write();
+    new ColorLines().AddLine(line1).AddLine(line2).AddToEndOfLastLine(line1).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.WriteLine("Write at point: [");
@@ -170,7 +170,7 @@ static void RunLinesTests()
     Console.WriteLine("Write to string: [" + lines.ToString() + "]" + Environment.NewLine);
 
     Console.Write("Concat lines: [");
-    ConsoleLines newLines = new ConsoleLines().AddLine(line1).AddLine(line2) + new ConsoleLines().AddLine(line3);
+    ColorLines newLines = new ColorLines().AddLine(line1).AddLine(line2) + new ColorLines().AddLine(line3);
     newLines.Write();
     Console.WriteLine("]" + Environment.NewLine);
 
