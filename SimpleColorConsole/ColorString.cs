@@ -6,9 +6,9 @@ namespace YonatanMankovich.SimpleColorConsole
     /// <summary>
     /// Represents a colored console string of characters.
     /// </summary>
-    public partial class ColorString : IConsoleWritable, IEnumerable<ColorCharacter>
+    public partial class ColorString : IConsoleWritable, IEnumerable<ColorChar>
     {
-        private IList<ColorCharacter> Characters { get; set; }
+        private IList<ColorChar> Characters { get; set; }
 
         /// <summary>
         /// Gets the number of characters in the current <see cref="ColorString"/> object.
@@ -20,7 +20,7 @@ namespace YonatanMankovich.SimpleColorConsole
         /// </summary>
         public ColorString()
         {
-            Characters = new List<ColorCharacter>();
+            Characters = new List<ColorChar>();
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace YonatanMankovich.SimpleColorConsole
         /// <param name="backColor">The background color of the string as will be displayed in the console.</param>
         public ColorString(string str, ConsoleColor? textColor = null, ConsoleColor? backColor = null)
         {
-            Characters = str.Select(c => new ColorCharacter(c, textColor, backColor)).ToList();
+            Characters = str.Select(c => new ColorChar(c, textColor, backColor)).ToList();
         }
 
         /// <summary>
@@ -42,26 +42,26 @@ namespace YonatanMankovich.SimpleColorConsole
 
         /// <summary>
         /// Initializes an instance of the <see cref="ColorString"/> class 
-        /// with the <see cref="IEnumerable{T}"/> of <see cref="ColorCharacter"/>s.
+        /// with the <see cref="IEnumerable{T}"/> of <see cref="ColorChar"/>s.
         /// </summary>
-        public ColorString(IEnumerable<ColorCharacter> characters)
+        public ColorString(IEnumerable<ColorChar> characters)
         {
-            Characters = new List<ColorCharacter>(characters);
+            Characters = new List<ColorChar>(characters);
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="ColorCharacter"/> at the specified index.
+        /// Gets or sets the <see cref="ColorChar"/> at the specified index.
         /// </summary>
         /// <param name="index">The index.</param>
-        /// <returns>The <see cref="ColorCharacter"/> at the specified index.</returns>
-        public ColorCharacter this[int index] { get => Characters[index]; set => Characters[index] = value; }
+        /// <returns>The <see cref="ColorChar"/> at the specified index.</returns>
+        public ColorChar this[int index] { get => Characters[index]; set => Characters[index] = value; }
 
         /// <summary>
-        /// Adds a <see cref="ColorCharacter"/> to the end of the current <see cref="ColorString"/>.
+        /// Adds a <see cref="ColorChar"/> to the end of the current <see cref="ColorString"/>.
         /// </summary>
-        /// <param name="character">The <see cref="ColorCharacter"/> to add.</param>
+        /// <param name="character">The <see cref="ColorChar"/> to add.</param>
         /// <returns>The updated self.</returns>
-        public ColorString AddToEnd(ColorCharacter character)
+        public ColorString AddToEnd(ColorChar character)
         {
             Characters.Add(character);
             return this;
@@ -74,7 +74,7 @@ namespace YonatanMankovich.SimpleColorConsole
         /// <returns>The updated self.</returns>
         public ColorString AddToEnd(char character)
         {
-            return AddToEnd(new ColorCharacter(character));
+            return AddToEnd(new ColorChar(character));
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace YonatanMankovich.SimpleColorConsole
         /// <returns>The updated self.</returns>
         public ColorString AddToEnd(ColorString str)
         {
-            foreach (ColorCharacter character in str)
+            foreach (ColorChar character in str)
                 Characters.Add(character);
             return this;
         }
@@ -105,7 +105,7 @@ namespace YonatanMankovich.SimpleColorConsole
         public void Write()
         {
             using (ContinuousColorConsoleWriter writer = new ContinuousColorConsoleWriter())
-                foreach (ColorCharacter character in Characters)
+                foreach (ColorChar character in Characters)
                     writer.Write(character);
         }
 
@@ -164,15 +164,15 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <summary>
-        /// Concatenates a <see cref="ColorCharacter"/> to a <see cref="ColorString"/>.
+        /// Concatenates a <see cref="ColorChar"/> to a <see cref="ColorString"/>.
         /// </summary>
         /// <param name="str">The <see cref="ColorString"/>.</param>
-        /// <param name="character">The <see cref="ColorCharacter"/>.</param>
+        /// <param name="character">The <see cref="ColorChar"/>.</param>
         /// <returns>
         /// A new <see cref="ColorString"/> that is a combination of 
-        /// the left <see cref="ColorString"/> and the right <see cref="ColorCharacter"/>s.
+        /// the left <see cref="ColorString"/> and the right <see cref="ColorChar"/>s.
         /// </returns>
-        public static ColorString operator +(ColorString str, ColorCharacter character)
+        public static ColorString operator +(ColorString str, ColorChar character)
         {
             return new ColorString(str.Characters).AddToEnd(character);
         }
@@ -199,10 +199,10 @@ namespace YonatanMankovich.SimpleColorConsole
 
         /// <summary>
         /// Returns an enumerator the iterates through the collection of 
-        /// <see cref="ColorCharacter"/>s of the current <see cref="ColorString"/>.
+        /// <see cref="ColorChar"/>s of the current <see cref="ColorString"/>.
         /// </summary>
         /// <returns>An enumerator that can be used to iterate through the <see cref="ColorString"/>.</returns>
-        public IEnumerator<ColorCharacter> GetEnumerator()
+        public IEnumerator<ColorChar> GetEnumerator()
         {
             return Characters.GetEnumerator();
         }

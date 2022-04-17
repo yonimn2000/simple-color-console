@@ -73,12 +73,12 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <summary>
-        /// Adds a <see cref="ColorCharacter"/> to the end of the last line
+        /// Adds a <see cref="ColorChar"/> to the end of the last line
         /// of the current <see cref="ColorLines"/> structure.
         /// </summary>
         /// <param name="character">The <see cref="ColorString"/> to add.</param>
         /// <returns>The updated self.</returns>
-        public ColorLines AddToEndOfLastLine(ColorCharacter character)
+        public ColorLines AddToEndOfLastLine(ColorChar character)
         {
             GetLastLine().AddToEnd(character);
             return this;

@@ -1,7 +1,7 @@
 ﻿namespace YonatanMankovich.SimpleColorConsole
 {
     /// <summary>
-    /// Represents a structure that helps writing <see cref="ColorCharacter"/>s more efficiently.
+    /// Represents a structure that helps writing <see cref="ColorChar"/>s more efficiently.
     /// </summary>
     public class ContinuousColorConsoleWriter : IDisposable
     {
@@ -27,11 +27,11 @@
         }
 
         /// <summary>
-        /// Writes the given <see cref="ColorCharacter"/> without moving the cursor position or changing
-        /// the console colors unless needed based on the previously written <see cref="ColorCharacter"/>.
+        /// Writes the given <see cref="ColorChar"/> without moving the cursor position or changing
+        /// the console colors unless needed based on the previously written <see cref="ColorChar"/>.
         /// </summary>
-        /// <param name="character">The <see cref="ColorCharacter"/>.</param>
-        protected internal void Write(ColorCharacter character)
+        /// <param name="character">The <see cref="ColorChar"/>.</param>
+        protected internal void Write(ColorChar character)
         {
             bool needToChangeColor = NeedToChangeColor(character);
             if (needToChangeColor)
@@ -52,7 +52,7 @@
             }
         }
 
-        private bool NeedToChangeColor(ColorCharacter newChar)
+        private bool NeedToChangeColor(ColorChar newChar)
         {
             return (newChar.Character != ' ' && newChar.TextColor != LastTextColor) || newChar.BackColor != LastBackColor;
         }

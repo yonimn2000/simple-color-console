@@ -4,14 +4,14 @@
     {
         public ColorString ColorText(ConsoleColor textColor)
         {
-            foreach (ColorCharacter character in Characters)
+            foreach (ColorChar character in Characters)
                 character.TextColor = textColor;
             return this;
         }
 
         public ColorString ColorBack(ConsoleColor backColor)
         {
-            foreach (ColorCharacter character in Characters)
+            foreach (ColorChar character in Characters)
                 character.BackColor = backColor;
             return this;
         }

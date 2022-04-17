@@ -16,32 +16,32 @@ static void RunColorTests()
 
 static void RunCharacterTests()
 {
-    Console.WriteLine(nameof(ColorCharacter) + " Tests");
+    Console.WriteLine(nameof(ColorChar) + " Tests");
     Console.WriteLine(new string('-', 35));
-    ColorCharacter character;
+    ColorChar character;
 
     Console.Write("Blank character: [");
-    character = new ColorCharacter();
+    character = new ColorChar();
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Background character: [");
-    character = new ColorCharacter(ConsoleColor.Blue);
+    character = new ColorChar(ConsoleColor.Blue);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Text colored character: [");
-    character = new ColorCharacter('#', textColor: ConsoleColor.Magenta);
+    character = new ColorChar('#', textColor: ConsoleColor.Magenta);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Background colored character: [");
-    character = new ColorCharacter('#', backColor: ConsoleColor.Magenta);
+    character = new ColorChar('#', backColor: ConsoleColor.Magenta);
     character.Write();
     Console.WriteLine("]");
 
     Console.Write("Fully colored character: [");
-    character = new ColorCharacter('#', textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
+    character = new ColorChar('#', textColor: ConsoleColor.Magenta, backColor: ConsoleColor.Cyan);
     character.Write();
     Console.WriteLine("]");
 
@@ -54,7 +54,7 @@ static void RunCharacterTests()
     Console.Write("Invalid character: [");
     try
     {
-        character = new ColorCharacter('\n');
+        character = new ColorChar('\n');
     }
     catch (ArgumentException)
     {
@@ -108,7 +108,7 @@ static void RunStringTests()
     Console.WriteLine("]");
 
     Console.Write("Add char to end: [");
-    str.AddToEnd(new ColorCharacter('@', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red));
+    str.AddToEnd(new ColorChar('@', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red));
     str.Write();
     Console.WriteLine("]");
 
@@ -123,7 +123,7 @@ static void RunStringTests()
 
     Console.Write("Concat char: [");
     str = new ColorString("0123456789", textColor: ConsoleColor.Yellow, backColor: ConsoleColor.Blue);
-    ColorCharacter character = new ColorCharacter('$', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
+    ColorChar character = new ColorChar('$', textColor: ConsoleColor.Blue, backColor: ConsoleColor.Red);
     ColorString newString = str + character;
     newString.Write();
     Console.WriteLine("]");
@@ -165,7 +165,7 @@ static void RunLinesTests()
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add char to end of last line: [");
-    new ColorLines(lines).AddToEndOfLastLine(new ColorCharacter('~', backColor: ConsoleColor.Magenta)).Write();
+    new ColorLines(lines).AddToEndOfLastLine(new ColorChar('~', backColor: ConsoleColor.Magenta)).Write();
     Console.WriteLine("]" + Environment.NewLine);
 
     Console.Write("Add string to end of last line: [");
