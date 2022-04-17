@@ -51,6 +51,17 @@ namespace YonatanMankovich.SimpleColorConsole
         }
 
         /// <summary>
+        /// Adds a <see cref="string"/> to the end of the current <see cref="ColorLines"/> structure.
+        /// </summary>
+        /// <param name="line">The <see cref="string"/> to add.</param>
+        /// <returns>The updated self.</returns>
+        public ColorLines AddLine(string line)
+        {
+            Lines.Add(new ColorString(line));
+            return this;
+        }
+
+        /// <summary>
         /// Adds a blank line to the end of the current <see cref="ColorLines"/> structure.
         /// </summary>
         /// <returns>The updated self.</returns>
@@ -76,9 +87,21 @@ namespace YonatanMankovich.SimpleColorConsole
         /// Adds a <see cref="ColorChar"/> to the end of the last line
         /// of the current <see cref="ColorLines"/> structure.
         /// </summary>
-        /// <param name="character">The <see cref="ColorString"/> to add.</param>
+        /// <param name="character">The <see cref="ColorChar"/> to add.</param>
         /// <returns>The updated self.</returns>
         public ColorLines AddToEndOfLastLine(ColorChar character)
+        {
+            GetLastLine().AddToEnd(character);
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a <see cref="char"/> to the end of the last line
+        /// of the current <see cref="ColorLines"/> structure.
+        /// </summary>
+        /// <param name="character">The <see cref="char"/> to add.</param>
+        /// <returns>The updated self.</returns>
+        public ColorLines AddToEndOfLastLine(char character)
         {
             GetLastLine().AddToEnd(character);
             return this;
@@ -91,6 +114,18 @@ namespace YonatanMankovich.SimpleColorConsole
         /// <param name="str">The <see cref="ColorString"/> to add.</param>
         /// <returns>The updated self.</returns>
         public ColorLines AddToEndOfLastLine(ColorString str)
+        {
+            GetLastLine().AddToEnd(str);
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a <see cref="string"/> to the end of the last line
+        /// of the current <see cref="ColorLines"/> structure.
+        /// </summary>
+        /// <param name="str">The <see cref="string"/> to add.</param>
+        /// <returns>The updated self.</returns>
+        public ColorLines AddToEndOfLastLine(string str)
         {
             GetLastLine().AddToEnd(str);
             return this;
