@@ -147,14 +147,22 @@ namespace YonatanMankovich.SimpleColorConsole
         /// </summary>
         public void Write()
         {
-            foreach (ColorString str in Lines)
-                str.WriteLine();
+            for (int line = 0; line < Lines.Count; line++)
+            {
+                Lines[line].Write();
+                if (line < Lines.Count - 1) // Do not add the last line break.
+                    Console.WriteLine();
+            }
         }
 
         /// <summary>
-        /// Same as <see cref="Write"/>.
+        /// Writes the current <see cref="ColorLines"/> to the console and adds a line terminator at the end.
         /// </summary>
-        public void WriteLine() => Write(); // For the interface implementation.
+        public void WriteLine()
+        {
+            Write();
+            Console.WriteLine();
+        }
 
         /// <summary>
         /// Writes the current <see cref="ColorLines"/> to the console at a given point.

@@ -51,13 +51,20 @@ namespace YonatanMankovich.SimpleColorConsole
 
         /// <summary>
         /// Initializes an instance of the <see cref="ColorChar"/> class with 
-        /// a blank (space) character and a background color.
+        /// a space character and a background color.
         /// </summary>
         /// <param name="backColor">The background color of the character as will be displayed in the console.</param>
-        public ColorChar(ConsoleColor? backColor = null)
+        public ColorChar(ConsoleColor backColor) : this()
+        {
+            BackColor = backColor;
+        }
+
+        /// <summary>
+        /// Initializes an instance of the <see cref="ColorChar"/> class with a space character.
+        /// </summary>
+        public ColorChar()
         {
             Character = ' ';
-            BackColor = backColor;
         }
 
         /// <summary>
