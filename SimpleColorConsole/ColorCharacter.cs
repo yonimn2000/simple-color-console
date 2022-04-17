@@ -5,7 +5,7 @@ namespace YonatanMankovich.SimpleColorConsole
     /// <summary>
     /// Represents a colored console character.
     /// </summary>
-    public class ColorCharacter : IConsoleWritable, IEquatable<ColorCharacter?>
+    public partial class ColorCharacter : IConsoleWritable, IEquatable<ColorCharacter?>
     {
         private char character;
         private static HashSet<char> InvalidCharacters { get; } = new HashSet<char> { '\n', '\r', '\t' };

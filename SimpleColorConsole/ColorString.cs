@@ -6,7 +6,7 @@ namespace YonatanMankovich.SimpleColorConsole
     /// <summary>
     /// Represents a colored console string of characters.
     /// </summary>
-    public class ColorString : IConsoleWritable, IEnumerable<ColorCharacter>
+    public partial class ColorString : IConsoleWritable, IEnumerable<ColorCharacter>
     {
         private IList<ColorCharacter> Characters { get; set; }
 

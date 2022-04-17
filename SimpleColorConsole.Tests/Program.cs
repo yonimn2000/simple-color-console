@@ -1,9 +1,18 @@
 ﻿using System.Drawing;
 using YonatanMankovich.SimpleColorConsole;
 
+RunColorTests();
 RunCharacterTests();
 RunStringTests();
 RunLinesTests();
+
+static void RunColorTests()
+{
+    foreach (ConsoleColor backColor in Enum.GetValues<ConsoleColor>())
+        foreach (ConsoleColor textColor in Enum.GetValues<ConsoleColor>())
+            $"{textColor} text on {backColor} background ".Color(textColor, backColor).Write();
+    Console.WriteLine();
+}
 
 static void RunCharacterTests()
 {
