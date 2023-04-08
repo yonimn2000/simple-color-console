@@ -1,8 +1,9 @@
 # Simple Color Console
 
-An easier way to create, edit, and write colorful text to the console.
+[![.NuGet Publish](https://github.com/yonimn2000/simple-color-console/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/yonimn2000/simple-color-console/actions/workflows/nuget-publish.yml)
+[![NuGet](https://img.shields.io/nuget/v/YonatanMankovich.SimpleColorConsole.svg)](https://www.nuget.org/packages/YonatanMankovich.SimpleColorConsole)
 
-The NuGet package is available [here](https://www.nuget.org/packages/YonatanMankovich.SimpleColorConsole/).
+An easier way to create, edit, and write colorful text to the console.
 
 ![All Colors](media/all-colors.png)
 
