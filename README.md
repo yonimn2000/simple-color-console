@@ -2,6 +2,8 @@
 
 An easier way to create, edit, and write colorful text to the console.
 
+The NuGet package is available [here](https://www.nuget.org/packages/YonatanMankovich.SimpleColorConsole/).
+
 ![All Colors](media/all-colors.png)
 
 ## Getting Started Examples
