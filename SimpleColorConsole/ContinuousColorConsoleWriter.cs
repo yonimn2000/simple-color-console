@@ -38,9 +38,13 @@
             {
                 if (character.BackColor.HasValue)
                     Console.BackgroundColor = character.BackColor.Value;
+                else
+                    Console.BackgroundColor = InitialBackColor;
 
                 if (character.TextColor.HasValue)
                     Console.ForegroundColor = character.TextColor.Value;
+                else
+                    Console.ForegroundColor = InitialTextColor;
             }
 
             Console.Write(character.Character);

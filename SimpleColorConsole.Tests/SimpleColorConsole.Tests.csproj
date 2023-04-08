@@ -9,6 +9,7 @@
     <RootNamespace>YonatanMankovich.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <Authors>Yonatan Mankovich</Authors>
     <Copyright>Copyright © $(Authors) 2022</Copyright>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

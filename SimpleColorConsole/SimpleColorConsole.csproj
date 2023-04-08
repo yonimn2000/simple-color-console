@@ -16,6 +16,8 @@
     <Title>$(AssemblyName)</Title>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Bug fix.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
